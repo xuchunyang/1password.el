@@ -83,7 +83,7 @@ see https://support.1password.com/command-line-getting-started/#get-started-with
 1Password is soooooo slow from here.")
 
 (defun 1password-get-item (name)
-  "'op get item NAME'."
+  "Return json object for the NAME item."
   (or (assoc-string name 1password--get-item-cache 'ignore-case)
       (with-temp-buffer
         (if (zerop (call-process 1password-op-executable nil t nil "get" "item" name (concat "--session=" 1password-token)))
@@ -96,6 +96,7 @@ see https://support.1password.com/command-line-getting-started/#get-started-with
 
 ;;;###autoload
 (defun 1password-get-password (name &optional copy)
+  "Return password of the NAME item."
   (interactive (list (1password--read-name) t))
   (when (string= "" name)
     (user-error "Name can't be emtpy"))
