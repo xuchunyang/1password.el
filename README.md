@@ -14,3 +14,7 @@ Get password of `NAME`, e.g., `github`.
 
 - Emacs 25.1 or later
 - `op` / [1Password command line tool](https://support.1password.com/command-line/)
+
+## See also
+
+- [dcreemer/1pass: A caching wrapper for the 1Passworld CLI](https://github.com/dcreemer/1pass) provides some Emacs support.
