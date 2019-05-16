@@ -27,6 +27,11 @@
 
 ;;; Code:
 
+;; The macro `let-alist' is already autoloaded, this expression is not
+;; needed. However, for Emacs without let-alist.el, this expression fails
+;; immediately and produces a clean reason.
+(eval-when-compile (require 'let-alist))
+
 (require 'json)
 
 (defgroup 1password nil
