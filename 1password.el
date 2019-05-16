@@ -27,6 +27,8 @@
 
 ;;; Code:
 
+(require 'json)
+
 (defgroup 1password nil
   "Use 1Password from Emacs."
   :group 'tools)
