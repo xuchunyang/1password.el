@@ -46,8 +46,8 @@
     (user-error "Please sign in from the command line for the first time, \
 see https://support.1password.com/command-line-getting-started/#get-started-with-the-command-line-tool"))
   (with-temp-buffer
-    (if (zerop (call-process-shell-command (format "echo -n %s | %s signin" password 1password-op-executable) nil t))
-        (setq 1password-token (buffer-string))
+    (if (zerop (call-process-shell-command (format "echo -n %s | %s signin --output=raw" password 1password-op-executable) nil t))
+        (setq 1password-token (replace-regexp-in-string (rx "\n" eos) "" (buffer-string)))
       (error "'op login' failed: %s" (buffer-string)))))
 
 (defvar 1password-items nil)
